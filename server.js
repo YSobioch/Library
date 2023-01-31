@@ -1,14 +1,16 @@
 //TODO Start Library
-const express = require('express')
+const express = require("express")
 const app = express()
+const expressLayouts = require('express-ejs-layouts')
+
+const indexRouter = require('./routes/index')
 
 app.set('view engine', 'ejs')
+app.set('views', __dirname + '/views')
+app.set('layout', 'layouts/layout')
+app.use(expressLayouts)
+app.use(express.static('public'))
 
-app.get('/', (req, res) => {
-    res.render('index', { text : 'world'})
-})
+app.use('/', indexRouter)
 
-const userRouter = require('./routes/users')
-
-app.use('/users', userRouter)
-app.listen(3000)
+app.listen(process.env.PORT || 3000)
