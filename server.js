@@ -12,6 +12,7 @@ app.use(expressLayouts)
 app.use(express.static('public'))
 
 //TODO Add Routes
+//Add more routes
 
 app.use('/', indexRouter)
 
