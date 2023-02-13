@@ -67,5 +67,6 @@ async function renderNewPage(res, book, hasError = false) {
         res.redirect('/books')
     }
 }
+// do stuff here
 
 module.exports = router
