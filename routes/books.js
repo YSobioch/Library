@@ -1,9 +1,9 @@
 const express = require('express')
 const router = express.Router()
 const multer = require('multer')
+const path = require('path')
 const Book = require('../models/book')
 const Author = require('../models/author')
-const path = require('path')
 const fs = require('fs')
 const uploadPath = path.join('public', Book.coverImageBasePath)
 const imageMimeTypes = ['image/jpeg', 'image/png', 'image/gif']
@@ -31,7 +31,7 @@ router.post('/', upload.single('cover'), async (req, res) => {
     const book = new Book({
         title: req.body.title,
         author: req.body.author,
-        publishDate: new Date(req.body.publishDate),
+        publishDate: new Date(req.body.publish),
         pageCount: req.body.pageCount,
         cover: fileName,
         description: req.body.description
@@ -41,7 +41,9 @@ router.post('/', upload.single('cover'), async (req, res) => {
         const newBook = await book.save()
         res.redirect('books')
     } catch {
+        console.log(book.publishDate)
         if (book.cover != null) {
+            console.log(book.cover)
             removeBookCover(book.cover)
         }
         renderNewPage(res, book, true)
