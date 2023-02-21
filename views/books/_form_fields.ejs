@@ -16,9 +16,9 @@
 </div>
 <div>
     <label>Publish Date</label>
+    <% console.log %>
     <input type="date" name="publish" 
-        values="<%= book.publishDate == null ? '' : 
-        book.publishDate.toISOString().split('T')[0] %>">
+        values="<%= book.publishDate == null ? '' : book.publishDate.toISOString().split('T')[0] %>">
 </div>
 <div>
     <lable>Page Count</lable>
