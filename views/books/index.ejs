@@ -1,4 +1,4 @@
-<h2>Search Book</h2>
+<h2 class="page-header">Search Book</h2>
 <form action="/books" method="GET">
     <div>
         <Label>Title</Label>
@@ -12,13 +12,16 @@
         <Label>Published Before</Label>
         <input type="date" name="publishedBefore" value="<%= searchOptions.publishedBefore  %>">
     </div>
-    <button type="submit">Search</button>
+    <button class="btn btn-primary" type="submit">Search</button>
 </form>
 <br>
 <div>
     <% books.forEach(book => { %>
-        <a href="/books/<%= book.id %>">
-            <img height="150" width="100" src="<%= book.coverImage %>">
-        </a>
+        <div>
+            <h6><%= book.title %></h6>
+            <a href="/books/<%= book.id %>">
+                <img height="150" width="100" src="<%= book.coverImage %>">
+            </a>
+        </div>
     <% }) %>
 </div>

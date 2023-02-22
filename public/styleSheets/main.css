@@ -1,0 +1,35 @@
+@import 'header.css';
+@import 'buttons.css';
+
+:root {
+    font-family: 'Roboto Slab', serif;
+    --hue: 200;
+    --dark: hsl(var(--hue), 14%, 21%);
+    --light: hsl(var(--hue), 13%, 35%);
+    --text: hsl(0, 0%, 87%);
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(to right, var(--dark), var(--light));
+    color: var(--text
+    )
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    margin-bottom: 3rem;
+}
+
+.inner-container {
+    margin: 0 2rem;
+}
+
+.page-header {
+    font-size: 2rem;
+    font-weight: 500;
+}
