@@ -1,3 +1,5 @@
+const rootStyles = window.getComputedStyle(document.documentElement)
+
 FilePond.registerPlugin(
     FilePondPluginImagePreview,
     FilePondPluginImageResize,
